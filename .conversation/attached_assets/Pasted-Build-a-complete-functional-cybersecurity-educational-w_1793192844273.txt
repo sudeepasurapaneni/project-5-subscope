@@ -1,0 +1,83 @@
+Build a complete, functional cybersecurity educational web application called **SubScope — Subdomain Enumeration Tool**.
+
+### Objective
+Create a prototype that demonstrates how subdomains can be discovered during an authorized security assessment. This must be a functional application, not just a frontend mockup with sample results.
+
+### Technology
+Use Python with Flask for the backend and React for the frontend. If the environment cannot support this stack easily, use another supported full-stack configuration while keeping the code understandable.
+
+### 1. Domain Input
+- Provide a clean input field for a domain name.
+- Include an example placeholder such as `example.com`.
+- Validate the domain format before starting enumeration.
+- Clearly explain that users must only assess domains they own or have explicit permission to test.
+
+### 2. Enumeration Functionality
+- Implement real passive subdomain discovery using a suitable public Certificate Transparency data source.
+- Extract candidate subdomains associated with the requested domain.
+- Ensure that results belong to the exact requested domain or its subdomains, not unrelated domains that merely contain the same text.
+- Remove duplicate entries.
+- Add optional DNS verification to check whether discovered subdomains currently resolve.
+- Display the discovery source and distinguish discovered candidates from DNS-verified results.
+- Use reasonable timeouts, error handling, and request limits.
+- Do not implement exploitation, port scanning, or unauthorized intrusive testing.
+
+### 3. Results Dashboard
+Display:
+- The target domain.
+- The total number of unique subdomains discovered.
+- The number of subdomains that successfully resolve through DNS.
+- A results table with the subdomain, DNS status, and discovery source.
+- Loading indicators while enumeration is running.
+- A clear empty state when no subdomains are found.
+- A button to export results as CSV.
+
+Do not fabricate findings or silently replace failed requests with sample results.
+
+### 4. Error Handling
+Handle:
+- Empty input.
+- Invalid domain formats.
+- Domains with no discovered subdomains.
+- Certificate Transparency source failures.
+- DNS lookup failures.
+- Network timeouts.
+- Rate limits and temporary service errors.
+
+Show understandable error messages instead of raw stack traces.
+
+### 5. Interface Design
+Create a modern, professional cybersecurity dashboard with:
+- A dark navy background and subtle blue accents.
+- A domain search form.
+- Summary cards.
+- A responsive results table.
+- Clear status badges.
+- A progress indicator.
+- A short explanation of passive subdomain enumeration.
+
+Keep the interface clean and easy to demonstrate in a college project presentation.
+
+### 6. Documentation
+Create a README.md containing:
+- Project overview.
+- Problem statement and objectives.
+- Features.
+- Technology stack.
+- Project structure.
+- Installation and execution instructions.
+- How the enumeration process works.
+- API endpoint documentation.
+- Error-handling approach.
+- Limitations and ethical-use guidelines.
+
+### 7. Quality Requirements
+- Implement real backend logic for discovery and DNS verification.
+- Keep the frontend and backend properly connected.
+- Never expose API secrets or internal error details to users.
+- Do not claim that a domain has been scanned if the request failed.
+- Do not include hardcoded subdomain results as if they were real findings.
+- Add basic tests for domain validation, result filtering, deduplication, and error handling.
+- Make the application easy for a beginner to understand and maintain.
+
+Build the working application, inspect the generated files, and fix obvious errors. Explain how to run it and demonstrate it using a domain that is explicitly designated for testing or that the user is authorized to assess.
